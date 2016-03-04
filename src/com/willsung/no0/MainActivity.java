@@ -17,19 +17,19 @@ public class MainActivity extends Activity{
 
         policyManager = (DevicePolicyManager)getSystemService(Context.DEVICE_POLICY_SERVICE);
 		componentName = new ComponentName(this, AdminReceiver.class); 
-		//调用锁屏
+		//璋冪敤閿佸睆
 		lock();
-		//干掉进程
+		//骞叉帀杩涚▼
 		android.os.Process.killProcess(android.os.Process.myPid()); 
 	}
 	
-	//锁屏
+	//閿佸睆
 	private void lock(){   
 		enManage();   
 		policyManager.lockNow();
 	}  
 	
-	//获取权限
+	//鑾峰彇鏉冮檺
 	private void enManage(){
 		Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
 		intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, componentName);
